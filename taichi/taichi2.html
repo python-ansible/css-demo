@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--<link rel="stylesheet" href="./taichi.css">-->
+    <style>
+        body {
+            background: #444444;
+        }
+
+        p {
+            text-align: center;
+            color: white;
+        }
+
+        /*定义动画帧，从0度到360度*/
+        @keyframes spin {
+            from {transform: rotate(0deg);}
+            to {transform: rotate(360deg);}
+        }
+        
+        .taiChi {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 100px auto 10px;
+            background: linear-gradient(to bottom,
+                            #ffffff 0%,
+                            #ffffff 50%,
+                            #000000 50%,
+                            #000000 100%);
+            /*定义动画时长10s*/
+            /*关联动画名spin*/
+            /*动画迭代次数无限次*/
+            /*动画定时功能线性*/
+            animation-duration: 10s;
+            animation-name: spin;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        .taiChi::before {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #ffffff;
+            border-radius: 50%;
+            top: 50px;
+            left: 0;
+            border: 40px solid black;
+
+        }
+
+        .taiChi::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #000000;
+            border-radius: 50%;
+            top: 50px;
+            right: 0;
+            border: 40px solid white;
+        }
+    </style>
+</head>
+<body>
+<div class="taiChi">
+</div>
+<p>道生一，一生二，二生三，三生万物</p>
+</body>
+</html>
