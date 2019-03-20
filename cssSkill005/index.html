@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        /*方法一：如果只有七个元素有bug*/
+        /*.parents {*/
+        /*display: flex;*/
+        /*justify-content: space-between;*/
+        /*flex-wrap: wrap;*/
+        /*width: 750px;*/
+        /*margin: 0 auto;*/
+        /*}*/
+        /*方法二：负margin*/
+        .parents {
+            width: 750px;
+            margin: 0 auto;
+        }
+        .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -5px;
+            overflow: hidden; /*注意*/
+        }
+        li {
+            width: 180px;
+            border: 1px solid red;
+            margin: 10px 5px;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+<!--flex实现平均布局-->
+<ul class="parents">
+    <div class="wrapper">
+        <li>child1</li>
+        <li>child2</li>
+        <li>child3</li>
+        <li>child4</li>
+        <li>child5</li>
+        <li>child6</li>
+        <li>child7</li>
+        <li>child8</li>
+    </div>
+</ul>
+</body>
+</html>

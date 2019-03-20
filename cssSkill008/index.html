@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang=zh-Hans>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .yuButton {
+            box-sizing: border-box;
+            display: inline-block;
+            background: none;
+            height: 36px;
+            line-height: 36px;
+            padding: 0 16px;
+            text-decoration: none;
+            font-size: 14px;
+            border: none;
+            transition: all 0.5s;
+            position: relative;
+            /*background: green;*/
+            overflow: hidden;
+            z-index: 0;
+        }
+        .yuButton:hover {
+            background: #E5E5E5;
+        }
+        .yuButton:focus {
+            outline: none;
+            background: #E5E5E5;
+        }
+        .yuButton > .circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 1px solid red;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            background: red;
+            margin-left: -5px;
+            margin-top: -5px;
+            transition: transform 0.3s;
+            visibility: hidden;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .yuButton > .circle.active {
+            transform: scale(10);
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <button id=b class="yuButton">
+        <span class="circle"></span>
+        按钮
+    </button>
+    <script>
+        b.onclick = function(){
+            b.querySelector('.circle')
+                .classList.add('active')
+        }
+        b.querySelector('.circle').addEventListener('transitionend',
+        function(){
+            b.querySelector('.circle')
+                .classList.remove('active')
+        })
+    </script>
+</body>
+</html>

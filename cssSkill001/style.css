@@ -1,0 +1,46 @@
+/*一行文本省略*/
+.long {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/*文字两端对齐*/
+span {
+  border: 1px solid red;
+  display: inline-block;
+  width: 5em;
+  text-align: justify;
+  line-height: 20px;
+  overflow: hidden;
+  height: 20px;
+}
+span::after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+  border: 1px solid blue;
+}
+/*垂直居中*/
+.test3 {
+  border: 1px solid red;
+  line-height: 20px;
+  padding: 10px 0;
+  text-align: center;
+}
+/*垂直居中*/
+.test4 {
+  border: 1px solid red;
+  line-height: 20px;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*多行文本省略*/
+.long2 {
+  border: 1px solid red;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

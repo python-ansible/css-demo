@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="//at.alicdn.com/t/font_1080034_t0jmqvgeoo.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /*border: 1px solid red;*/
+        }
+
+        .icon {
+            width: 1em; height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+
+        .wrapper {
+            /*border: 1px solid green;*/
+            display: flex;
+            position: relative;
+        }
+
+        .suggestion {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: none;
+        }
+
+        .suggestion.active {
+            display: block;
+        }
+
+        .inputWrapper {
+            position: relative;
+            display: inline-block;
+            float: left; /*父元素在 BFC(flex)中，不用清除浮动*/
+        }
+
+        .inputWrapper + button {
+            float: left;
+        }
+
+        .inputWrapper + button {
+            background: rgba(51, 136, 255, 1.000);
+            border: none;
+            color: white;
+            font-size: 14px;
+            padding: 0 20px;
+        }
+
+        .inputWrapper + button:focus {
+            outline: none;
+        }
+
+        .inputWrapper + button:hover {
+            /*不够熟悉*/
+            box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.2);
+            /*bg 和 bg color 的区别是什么？*/
+            background: rgba(48, 126, 242, 1.000);
+
+        }
+        .floatSpan {
+            /*border: 1px solid red;*/
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            color: rgba(231, 231, 231, 1.000);
+        }
+
+        .splitLine {
+            border-left: 1px solid;
+            width: 0;
+            height: 16px;
+            margin: 0 11px;
+        }
+
+        .inputWrapper input[type=text] {
+            border: 1px solid rgba(184, 184, 184, 1.000);
+            width: 540px;
+            height: 35px;
+            line-height: 35px;
+            padding-left: 8px;
+            font-size: 15px;
+        }
+
+        .inputWrapper input[type=text]:hover {
+            border-color: rgba(153, 153, 153, 1.000);
+        }
+
+        .inputWrapper input[type=text]:focus {
+            outline: none;
+            border-color: rgba(51, 136, 255, 1.000);
+        }
+
+        .inputWrapper svg.icon {
+            width: 20px;
+            height: 20px;
+            fill: rgba(153, 153, 153, 1.000);
+        }
+
+        .inputWrapper svg.icon:hover {
+            fill: rgba(44, 129, 255, 1.000);
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <span class="inputWrapper">
+        <span class="floatSpan">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-microphoneicon"></use>
+            </svg>
+            <span class="splitLine"></span>
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-camera"></use>
+            </svg>
+        </span>
+        <input id="keyword" type="text" autocomplete="off">
+    </span>
+    <button>百度一下</button>
+    <ul class="suggestion" id="suggestion">
+        <li>选项1</li>
+        <li>选项2</li>
+        <li>选项3</li>
+        <li>选项4</li>
+    </ul>
+</div>
+<script>
+    keyword.oninput = function (e) {
+        var value = keyword.value
+        if (value){
+            suggestion.classList.add('active')
+        } else {
+            suggestion.classList.remove('active')
+        }
+    }
+</script>
+</body>
+</html>
