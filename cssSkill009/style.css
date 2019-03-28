@@ -1,0 +1,67 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background: #333;
+}
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.stick {
+    width: 6px;
+    height: 60px;
+    background: white;
+    display: inline-block;
+    transform-origin: bottom center; /*元素变形的原点*/
+    animation :loading 1.5s ease-in-out infinite;
+}
+
+.stick1 {
+    animation-delay: 0.1s;
+}
+
+.stick2 {
+    animation-delay: 0.2s;
+}
+
+.stick3 {
+    animation-delay: 0.3s;
+}
+
+.stick4 {
+    animation-delay: 0.4s;
+}
+
+.stick5 {
+    animation-delay: 0.5s;
+}
+
+.stick6 {
+    animation-delay: 0.6s;
+}
+
+.stick7 {
+    animation-delay: 0.7s;
+}
+
+.stick8 {
+    animation-delay: 0.8s;
+}
+
+
+@keyframes loading {
+    0% {
+        transform: scaleY(0.1); /*调整Y轴比例*/
+        background: #fff;
+    }
+    50% {
+        transform: scaleY(1);
+        background: #2ecc71
+    }
+    100% {
+        transform: scaleY(0.1);
+        background: transparent;
+    }
+}
