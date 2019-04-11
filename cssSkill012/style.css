@@ -1,0 +1,21 @@
+* {margin: 0; padding: 0; box-sizing: border-box;}
+.red.active {background: red;}
+.orange.active {background: orange;}
+.yellow.active {background: yellow;}
+.green.active {background: green;}
+.blue.active {background: blue;}
+.purple.active {background: purple;}
+
+div {
+    border: 1px solid black;
+    padding: 10px;
+    display: flex;
+    flex: 1;
+    border-radius: 50%;
+    transition: all 0.5s;
+}
+
+.red {
+    width: 100vw; /*view width*/
+    height: 100vw;
+}
